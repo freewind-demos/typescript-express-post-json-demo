@@ -6,12 +6,13 @@ app.use(bodyParser.json());
 
 app.get('/hello1/:name', (req, res) => {
   const name = req.params.name;
-  res.send(`Hello1, ${name}`);
+  res.send(`Hello1, ${name} (GET)`);
 });
 
-app.get('/hello2', (req, res) => {
+// Notice: GET doesn't support request body, we should use POST
+app.post('/hello2', (req, res) => {
   const params = req.body as { name: string }
-  res.send(`Hello2, ${params.name}`)
+  res.send(`Hello2, ${params.name} (POST)`)
 });
 
 app.listen(3000, () => {
