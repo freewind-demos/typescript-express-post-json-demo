@@ -8,23 +8,13 @@ npm install
 npm run demo
 ```
 
-Then visit <http://localhost:3000/typescript>, you will see `Hello, typescript`.
+Then visit <http://localhost:3000/hello1/typescript>, you will see `Hello1, typescript`.
 
-My question is:
-
-I've already set:
+or
 
 ```
-"noImplicitAny": true,
+brew install httpie
+http GET http://localhost:3000/hello2 name=express
 ```
 
-in `tsconfig.json`, but in the `server.ts`, I didn't specify the type for `req` and `res`,
-but typescript doesn't report any errors:
-
-```
-app.get('/:name', (req, res) => {
-   ...
-})
-```
-
-Why?
+will see `Hello2, express`
